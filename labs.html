@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f9fc;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #fff;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #222;
+            font-size: 16px;
+        }
+
+        .auth-buttons a {
+            margin-left: 20px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #00c1a1;
+            color: #00c1a1;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .auth-buttons a.signup {
+            background-color: #00c1a1;
+            color: #fff;
+        }
+
+        /* Style for login/signup section */
+        .auth-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .tab button {
+            background-color: #f6f9fc;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .tab button.active {
+            border-bottom: 2px solid #00c1a1;
+            font-weight: bold;
+        }
+
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00c1a1;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #009688;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cv.html">About</a></li>
+                <li><a href="labs.html" class="active">Labs</a></li>
+            </ul>
+        </nav>
+      
+    </header>
+
+    <main>
+        <h1>Available Labs</h1>
+        <ul class="labs-list">
+            <li>Lab1</li>
+            <li>Lab2</li>
+            <li>Lab3</li>
+            <li>Lab4</li>
+        </ul>
+    </main>
+
+</body>
+</html>

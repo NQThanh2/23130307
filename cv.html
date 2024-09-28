@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f9fc;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #222;
+            font-size: 16px;
+        }
+
+        nav ul li a.active {
+            color: #00c1a1;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header .avatar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00c1a1;
+        }
+
+        .header .info {
+            flex-grow: 1;
+            margin-left: 30px;
+        }
+
+        .header .info h1 {
+            font-size: 32px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .header .info h2 {
+            font-size: 18px;
+            color: #00c1a1;
+            margin-bottom: 10px;
+        }
+
+        .header .info p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .section {
+            margin-top: 40px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #00c1a1;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #00c1a1;
+        }
+
+        .section ul {
+            list-style: none;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skills-list li {
+            background-color: #00c1a1;
+            color: white;
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 30px;
+        }
+
+        .time {
+            font-weight: bold;
+            color: #666;
+        }
+
+        .position {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .link {
+            color: #00c1a1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cv.html" class="active">About</a></li>
+                <li><a href="#">Labs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="header">
+            <div class="avatar">
+                <img src="https://i.pinimg.com/564x/eb/57/6f/eb576ff023487bcb1fa3ad61ee7b23ee.jpg" alt="Profile Picture">
+            </div>
+            <div class="info">
+                <h1>Quang Thanh</h1>
+                <h2>Full-Stack Developer</h2>
+                <p>Phone: +84 123456789 | Email: quangthanh.dev@gmail.com</p>
+                <p>Website: <a href="#" class="link">lundevweb.com</a></p>
+            </div>
+        </div>
+
+        <!-- Introduce Myself Section -->
+        <div class="section">
+            <h2>Introduce Myself</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem voluptate ad eligendi animi exercitationem nisi veritatis perferendis eos. Quae culpa totam obcaecati corporis consectetur unde, nobis autem perspiciatis minima maiores.</p>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="section">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <span class="time">2020 - 2022</span>
+                <div class="position">Front-end Developer</div>
+                <div class="company">ABC D Company</div>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium officia nobis quas excepturi consectetur quidem quia est neque doloremque.</p>
+            </div>
+
+            <div class="experience-item">
+                <span class="time">2015 - 2019</span>
+                <div class="position">Student</div>
+                <div class="company">ACDC University</div>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium officia nobis quas excepturi consectetur quidem quia est neque doloremque.</p>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Bootstrap</li>
+                <li>PHP</li>
+                <li>MySQL</li>
+                <li>Laravel</li>
+                <li>Git</li>
+            </ul>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="project-item">
+                <span class="time">2020</span>
+                <div class="position">Website Shopping</div>
+                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consequatur amet sed, est eum facilis repellendus atque perspiciatis iste porro nobis autem explicabo expedita fugiat nostrum. Eveniet eum autem culpa!</p>
+                <a href="https://www.lundevweb.com" class="link">www.lundevweb.com</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

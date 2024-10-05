@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  width: 350px;
+  padding: 30px;
+  border: 1px solid #222;
+  border-radius: 5px;
+}
+.close-button {
+  position: relative;
+  left: 310px;
+  top: 5px;
+  cursor: pointer;
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #E6F4EB;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.8;
+}
+.signup-link {
+  text-align: center;
+  margin-top: 10px;
+}
+.signup-link a {
+  color: #04AA6D;
+  text-decoration: none;
+}
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.social-button {
+  width: 48%;
+  background-color: #f0f2f5;
+  border: 1px solid #282A35;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.social-button img {
+  margin-right: 10px;
+}
+.social-button:hover {
+  opacity: 0.8;
+}
+.forgot-password {
+  text-align: center;
+  margin-top: 10px;
+}
+.forgot-password a {
+  color: #04AA6D;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <span class="close-button">&times;</span>
+    <h2>Log in</h2>
+    <p class="signup-link">Don't have an account? <a href="#">Sign up</a></p>
+    <div class="social-buttons">
+      <button class="social-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt="Google" width="20" height="20">
+        Google
+      </button>
+      
+      <button class="social-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook" width="20" height="20">
+        Facebook
+      </button>
+    </div>
+    <div class="social-buttons">
+      <button class="social-button">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github" width="20" height="20">
+        Github
+      </button>
+      <button class="social-button">
+        <img src="https://static.wikia.nocookie.net/daho2021/images/5/56/Feide.png/revision/latest?cb=20230104133102&path-prefix=no" alt="Feide" width="20" height="20">
+        Feide
+      </button>
+    </div>
+    <p style="text-align: center;">OR</p>
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Enter your email">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password">
+    <button>Login</button>
+    <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+  </div>
+</body>
+</html>

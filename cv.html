@@ -57,6 +57,30 @@
             color: white;
         }
 
+        /* Dropdown */
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown a {
+            padding: 10px 20px;
+            display: block;
+            color: #222;
+        }
+
+        .dropdown a:hover {
+            background-color: #00c1a1;
+            color: white;
+        }
+
         .container {
             width: 80%;
             max-width: 1200px;
@@ -193,7 +217,15 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="cv.html" class="active">About</a></li>
-                <li><a href="labs.html">Labs</a></li>
+                <li>
+                    <a href="labs.html">Labs</a>
+                    <div class="dropdown">
+                        <a href="lab1.html">Lab 1</a>
+                        <a href="lab2.html">Lab 2</a>
+                        <a href="lab3.html">Lab 3</a>
+                        <a href="lab4.html">Lab 4</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -207,7 +239,7 @@
                 <h1>Quang Thanh</h1>
                 <h2>Full-Stack Developer</h2>
                 <p>Phone: +84 123456789 | Email: quangthanh.dev@gmail.com</p>
-                <p>Website: <a href="#" class="link">lundevweb.com</a></p>
+                <p>Website: <a href="https://www.lundevweb.com" class="link">lundevweb.com</a></p>
             </div>
         </div>
 
@@ -247,6 +279,7 @@
                 <li>MySQL</li>
                 <li>Laravel</li>
                 <li>Git</li>
+                <li>Java </li>
             </ul>
         </div>
 
@@ -261,6 +294,18 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Tự động thêm lớp active cho menu mục tương ứng với trang hiện tại
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const currentUrl = window.location.href;
+
+        navLinks.forEach(link => {
+            if (link.href === currentUrl) {
+                link.classList.add('active');
+            }
+        });
+    </script>
 
 </body>
 </html>

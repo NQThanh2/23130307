@@ -112,5 +112,13 @@ button:hover {
     <button>Login</button>
     <p class="forgot-password"><a href="#">Forgot Password?</a></p>
   </div>
+
+  <script>
+    // Thêm sự kiện click cho nút đóng
+    document.querySelector('.close-button').addEventListener('click', function() {
+      // Điều hướng về trang home
+      window.location.href = 'index.html'; // Thay 'index.html' bằng URL của trang home
+    });
+  </script>
 </body>
 </html>

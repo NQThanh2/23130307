@@ -3,164 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Exercise System</title>
+    <title>Coding Platform</title>
     <style>
+        /* styles.css */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
+        }
+
+        .screen {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .header {
-            text-align: center;
+
+        .hidden {
+            display: none;
+        }
+
+        h2 {
             margin-bottom: 20px;
         }
-        .header h2 {
-            margin: 0;
-        }
-        input[type="text"], input[type="password"], textarea {
+
+        input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        .button {
-            width: 100%;
+
+        button {
             padding: 10px;
-            background-color: #4CAF50;
-            color: white;
+            margin: 5px 0;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
+            background-color: #5cb85c;
+            color: white;
             cursor: pointer;
-            text-align: center;
-            display: inline-block;
+            width: 48%;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        #exercise-list {
+            margin-top: 20px;
+        }
+
+        .exercise-card {
+            background: #e9ecef;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .exercise-card:hover {
+            background: #d6d9db;
+        }
+
+        /* Fixed code editor style */
+        #code-editor {
+            width: 100%;
+            height: 300px; /* Fixed height for the code editor */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace; /* Monospace font for code */
+            resize: none; /* Disable resizing */
+            background: #f8f8f8; /* Light background for code editor */
+        }
+
+        #result {
             margin-top: 10px;
-        }
-        .button:hover {
-            background-color: #3e8e41;
-        }
-        .exercise {
-            border-bottom: 1px solid #ccc;
-            padding: 10px 0;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
 <body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username/Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <a href="#" id="forgot-password">Forgot Password?</a>
+        </div>
 
-<!-- Login Screen -->
-<div class="container" id="login-screen">
-    <div class="header">
-        <h2>Login</h2>
-    </div>
-    <input type="text" placeholder="Username/Email" />
-    <input type="password" placeholder="Password" />
-    <button class="button" onclick="showDashboard()">Login</button>
-    <div class="forgot-password">
-        <a href="#">Forgot Password?</a>
-    </div>
-    <p>Simple, clean, and secure login screen.</p>
-</div>
+        <!-- Dashboard -->
+        <div id="dashboard" class="screen hidden">
+            <h2>Dashboard</h2>
+            <input type="text" id="search" placeholder="Search exercises..." onkeyup="filterExercises()">
+            <div id="exercise-list">
+                <!-- Exercise cards will be populated here -->
+            </div>
+            <button onclick="goBackToLogin()">Back to Login</button> <!-- Back to Login Button -->
+        </div>
 
-<!-- Dashboard -->
-<div class="container" id="dashboard" style="display: none;">
-    <div class="header">
-        <h2>Dashboard</h2>
+        <!-- Exercise Detail -->
+        <div id="exercise-detail" class="screen hidden">
+            <h2 id="exercise-title"></h2>
+            <p id="exercise-description"></p>
+            <textarea id="code-editor" placeholder="Write your code here..."></textarea>
+            <button onclick="runCode()">Run Code</button>
+            <button onclick="submitCode()">Submit</button>
+            <button onclick="goBack()">Back</button> <!-- Back Button -->
+            <div id="result"></div>
+        </div>
     </div>
-    <div class="exercise">
-        <h3>Exercise 1</h3>
-        <p>Short description of Exercise 1</p>
-        <p>Difficulty level: Easy</p>
-        <p>Time limit: 30 minutes</p>
-        <button class="button" onclick="showCodingEnvironment()">Select Exercise</button>
-    </div>
-    <div class="exercise">
-        <h3>Exercise 2</h3>
-        <p>Short description of Exercise 2</p>
-        <p>Difficulty level: Medium</p>
-        <p>Time limit: 1 hour</p>
-        <button class="button" onclick="showCodingEnvironment()">Select Exercise</button>
-    </div>
-    <!-- Add more exercises here -->
-</div>
 
-<!-- Coding Environment -->
-<div class="container" id="coding-environment" style="display: none;">
-    <div class="header">
-        <h2>Exercise Title</h2>
-        <p>Short description of the exercise.</p>
-    </div>
-    <div class="coding-environment">
-        <textarea placeholder="Write your code here..."></textarea>
-        <button class="button">Run Code</button>
-        <button class="button">Clear Code</button>
-        <button class="button" onclick="showSubmissionResults()">Submit</button>
-    </div>
-    <h2>Test Cases</h2>
-    <div>
-        <p>Input: ...</p>
-        <p>Expected Output: ...</p>
-        <p>Actual Output: ...</p>
-        <p>Status: Passed/Failed</p>
-    </div>
-</div>
+    <script>
+        // script.js
+        const exercises = [
+            {
+                title: 'Hello World in C',
+                description: 'Write a program to print "Hello World".',
+                language: 'C'
+            },
+            {
+                title: 'Hello World in Python',
+                description: 'Write a program to print "Hello World".',
+                language: 'Python'
+            },
+            {
+                title: 'Hello World in Java',
+                description: 'Write a program to print "Hello World".',
+                language: 'Java'
+            }
+        ];
 
-<!-- Submission Results -->
-<div class="container" id="submission-results" style="display: none;">
-    <div class="header">
-        <h2>Submission Results</h2>
-    </div>
-    <p>Status: Success/Failed</p>
-    <h3>Test Cases</h3>
-    <ul>
-        <li>
-            <p>Input: ...</p>
-            <p>Expected Output: ...</p>
-            <p>Actual Output: ...</p>
-            <p>Status: Passed/Failed</p>
-        </li>
-        <!-- Add more test cases here -->
-    </ul>
-    <p>Score: 10/10</p>
-    <p>Time Taken: 10 minutes</p>
-    <p>Memory Used: 100 MB</p>
-    <button class="button" onclick="tryAgain()">Try Again</button>
-    <button class="button" onclick="returnToDashboard()">Return to Dashboard</button>
-</div>
+        function login() {
+            // Simulate a login action
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            loadExercises();
+        }
 
-<script>
-    function showDashboard() {
-        document.getElementById("login-screen").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-    }
+        function loadExercises() {
+            const exerciseList = document.getElementById('exercise-list');
+            exerciseList.innerHTML = ''; // Clear previous exercises
+            exercises.forEach((exercise, index) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-card';
+                card.innerHTML = `<strong>${exercise.title}</strong><p>${exercise.description}</p>`;
+                card.onclick = () => showExerciseDetail(index);
+                exerciseList.appendChild(card);
+            });
+        }
 
-    function showCodingEnvironment() {
-        document.getElementById("dashboard").style.display = "none";
-        document.getElementById("coding-environment").style.display = "block";
-    }
+        function showExerciseDetail(index) {
+            const exercise = exercises[index];
+            document.getElementById('exercise-title').innerText = exercise.title;
+            document.getElementById('exercise-description').innerText = exercise.description;
+            document.getElementById('exercise-detail').classList.remove('hidden');
+            document.getElementById('dashboard').classList.add('hidden');
+        }
 
-    function showSubmissionResults() {
-        document.getElementById("coding-environment").style.display = "none";
-        document.getElementById("submission-results").style.display = "block";
-    }
+        function runCode() {
+            const code = document.getElementById('code-editor').value;
+            // Simulated code execution (you would implement actual execution logic here)
+            document.getElementById('result').innerText = `Code executed: \n${code}`;
+        }
 
-    function tryAgain() {
-        document.getElementById("submission-results").style.display = "none";
-        document.getElementById("coding-environment").style.display = "block";
-    }
+        function submitCode() {
+            const code = document.getElementById('code-editor').value;
+            // Simulated submission logic
+            alert('Code submitted: ' + code);
+        }
 
-    function returnToDashboard() {
-        document.getElementById("submission-results").style.display = "none";
-        document.getElementById("dashboard").style.display = "block";
-    }
-</script>
+        function goBack() {
+            // Hide the exercise detail and show the dashboard
+            document.getElementById('exercise-detail').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+        }
+
+        function goBackToLogin() {
+            // Hide the dashboard and show the login screen
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('login-screen').classList.remove('hidden');
+        }
+
+        function filterExercises() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const filteredExercises = exercises.filter(exercise => 
+                exercise.title.toLowerCase().includes(query) ||
+                exercise.description.toLowerCase().includes(query)
+            );
+            const exerciseList = document.getElementById('exercise-list');
+            exerciseList.innerHTML = ''; // Clear previous exercises
+            filteredExercises.forEach((exercise, index) => {
+                const card = document.createElement('div');
+                card.className = 'exercise-card';
+                card.innerHTML = `<strong>${exercise.title}</strong><p>${exercise.description}</p>`;
+                card.onclick = () => showExerciseDetail(index);
+                exerciseList.appendChild(card);
+            });
+        }
+    </script>
 </body>
 </html>

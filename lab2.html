@@ -4,19 +4,26 @@
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff; /* Nền trắng */
+  color: #333; /* Màu chữ tối để dễ đọc trên nền trắng */
 }
+
 .container {
   width: 350px;
   padding: 30px;
   border: 1px solid #222;
   border-radius: 5px;
+  background-color: #fff; /* Đảm bảo nền của container vẫn là màu trắng */
 }
+
 .close-button {
   position: relative;
   left: 310px;
   top: 5px;
   cursor: pointer;
+  color: #333; /* Đặt màu cho nút 'X' */
 }
+
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
@@ -25,7 +32,9 @@ input[type=text], input[type=password] {
   border: 1px solid #E6F4EB;
   border-radius: 4px;
   box-sizing: border-box;
+  color: #333; /* Đặt màu chữ trong input để dễ đọc */
 }
+
 button {
   background-color: #04AA6D;
   color: white;
@@ -35,22 +44,27 @@ button {
   cursor: pointer;
   width: 100%;
 }
+
 button:hover {
   opacity: 0.8;
 }
+
 .signup-link {
   text-align: center;
   margin-top: 10px;
 }
+
 .signup-link a {
   color: #04AA6D;
   text-decoration: none;
 }
+
 .social-buttons {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
+
 .social-button {
   width: 48%;
   background-color: #f0f2f5;
@@ -61,20 +75,34 @@ button:hover {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  color: #333; /* Đặt màu chữ cho các nút mạng xã hội */
+  font-weight: bold; /* Tăng độ đậm của chữ */
 }
+
 .social-button img {
   margin-right: 10px;
 }
+
 .social-button:hover {
   opacity: 0.8;
 }
+
 .forgot-password {
   text-align: center;
   margin-top: 10px;
 }
+
 .forgot-password a {
   color: #04AA6D;
   text-decoration: none;
+}
+
+label {
+  color: #333; /* Đặt màu chữ cho các label */
+}
+
+p {
+  color: #333; /* Đặt màu chữ chung cho các đoạn văn */
 }
 </style>
 </head>

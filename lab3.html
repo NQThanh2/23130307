@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Page</title>
+
+    <!-- Import Tailwind CSS and Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Custom style for smooth transition */
+        .hidden {
+            display: none;
+        }
+
+        .transition {
+            transition: all 0.3s ease;
+        }
+
+        .active-course {
+            border: 2px solid #34d399; /* Green border to indicate active card */
+        }
+    </style>
+
+    <script>
+        // JavaScript to toggle between course content sections
+        function showCourseContent(courseId) {
+            // Hide all course content sections
+            const allContent = document.querySelectorAll('.course-content');
+            allContent.forEach(content => content.classList.add('hidden'));
+
+            // Remove active class from all course cards
+            const allCards = document.querySelectorAll('.course-card');
+            allCards.forEach(card => card.classList.remove('active-course'));
+
+            // Show the selected course content
+            document.getElementById(courseId).classList.remove('hidden');
+
+            // Add active class to clicked course card
+            const selectedCard = document.querySelector(`[data-course-id="${courseId}"]`);
+            selectedCard.classList.add('active-course');
+        }
+
+        // Toggle sidebar on smaller screens
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto flex items-center justify-between py-4 px-6">
+            <div class="flex items-center">
+                <!-- Sidebar toggle for mobile view -->
+                <button class="md:hidden text-2xl mr-4" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Title -->
+                <span class="ml-3 text-lg font-semibold">Available Materials</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container mx-auto flex mt-6">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-1/5 md:block hidden transition">
+            <nav class="bg-white shadow rounded-lg p-4">
+                <ul>
+                    <li class="flex items-center mb-4">
+                        <i class="fas fa-home text-xl"></i>
+                        <span class="ml-3 text-lg">Lập trình</span>
+                    </li>
+                    <li class="flex items-center mb-4">
+                        <i class="fas fa-road text-xl"></i>
+                        <span class="ml-3 text-lg">Xác suất thống kế</span>
+                    </li>
+                    <li class="flex items-center mb-4">
+                        <i class="fas fa-file-alt text-xl"></i>
+                        <span class="ml-3 text-lg">Toán rời rạc</span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content: Course Cards -->
+        <main class="w-full md:w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition">
+
+            <!-- JavaScript Basic Course Card -->
+            <div data-course-id="jsBasic" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('jsBasic')">
+                <h2 class="text-2xl font-bold text-white">JavaScript</h2>
+                <p class="text-lg text-white">{Basic}</p>
+                <p class="mt-4 text-gray-800">Lập Trình JavaScript Cơ Bản</p>
+            </div>
+
+            <!-- JavaScript Advanced Course Card -->
+            <div data-course-id="jsAdvanced" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('jsAdvanced')">
+                <h2 class="text-2xl font-bold text-white">JavaScript</h2>
+                <p class="text-lg text-white">{Advanced}</p>
+                <p class="mt-4 text-gray-800">Lập Trình JavaScript Nâng Cao</p>
+            </div>
+
+            <!-- WSL Ubuntu Course Card -->
+            <div data-course-id="wslUbuntu" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('wslUbuntu')">
+                <h2 class="text-2xl font-bold text-white">WSL Ubuntu</h2>
+                <p class="text-lg text-white">Windows Terminal</p>
+                <p class="mt-4 text-gray-800">Làm việc với Terminal &amp; Ubuntu</p>
+            </div>
+
+            <!-- Node & ExpressJS Course Card -->
+            <div data-course-id="nodeExpress" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('nodeExpress')">
+                <h2 class="text-2xl font-bold text-white">Node &amp; ExpressJS</h2>
+                <p class="mt-4 text-gray-800">Node &amp; ExpressJS</p>
+            </div>
+
+            <!-- ReactJS Course Card -->
+            <div data-course-id="reactJs" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('reactJs')">
+                <h2 class="text-2xl font-bold text-white">React JS</h2>
+                <p class="text-lg text-white">Learn once, write anywhere</p>
+                <p class="mt-4 text-gray-800">Xây Dựng Website với ReactJS</p>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Detailed Course Content Sections -->
+    <div class="container mx-auto mt-8">
+
+        <!-- JavaScript Basic Content -->
+        <div id="jsBasic" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
+            <h2 class="text-2xl font-bold mb-4">JavaScript Basic</h2>
+            <p>This section covers the basics of JavaScript programming, including syntax, variables, loops, and functions.</p>
+        </div>
+
+        <!-- JavaScript Advanced Content -->
+        <div id="jsAdvanced" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
+            <h2 class="text-2xl font-bold mb-4">JavaScript Advanced</h2>
+            <p>This section dives into advanced JavaScript topics, such as closures, asynchronous programming, and ES6 features.</p>
+        </div>
+
+        <!-- WSL Ubuntu Content -->
+        <div id="wslUbuntu" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
+            <h2 class="text-2xl font-bold mb-4">WSL Ubuntu</h2>
+            <p>This section explains how to set up and work with WSL (Windows Subsystem for Linux) and Ubuntu for development.</p>
+        </div>
+
+        <!-- Node & ExpressJS Content -->
+        <div id="nodeExpress" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
+            <h2 class="text-2xl font-bold mb-4">Node & ExpressJS</h2>
+            <p>In this section, you will learn how to build server-side applications using Node.js and Express.js.</p>
+        </div>
+
+        <!-- ReactJS Content -->
+        <div id="reactJs" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
+            <h2 class="text-2xl font-bold mb-4">React JS</h2>
+            <p>This section covers React.js, a JavaScript library for building user interfaces, focusing on component-based development.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

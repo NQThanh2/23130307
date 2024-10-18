@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>Lesson Content</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #000;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .content h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .content p {
+            margin-bottom: 10px;
+        }
+        .content ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .content ul li {
+            margin-bottom: 5px;
+        }
+        .content ul li ul {
+            list-style: circle;
+        }
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="#" class="active">1. Introduction</a></li>
+            <li><a href="#">2. Setting Up the Development Environment</a></li>
+            <li><a href="#">3. Django Basic</a></li>
+            <li><a href="#">4. Django Advanced Concepts</a></li>
+            <li><a href="#">9. Pythonanywhere</a></li>
+            <li><a href="#">Syllabus</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>1. Introduction</h1>
+        <h2>1.1 Basics of Python</h2>
+        <h3>1.1.1 Python Installation</h3>
+        <ul>
+            <li>Download and install Python from the official <a href="#">Python website</a>.</li>
+            <li>Verify installation by running <code>python --version</code> or <code>python3 --version</code> in the terminal.</li>
+        </ul>
+        <h3>1.1.2 Python Syntax</h3>
+        <ul>
+            <li>Understanding indentation and code blocks.</li>
+            <li>Writing your first Python program (e.g., <code>print("Hello, World!")</code>).</li>
+        </ul>
+        <h3>1.1.3 Variables and Data Types</h3>
+    </div>
+    <a href="#" class="back-button">Back to list</a>
+</body>
+</html>

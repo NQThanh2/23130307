@@ -3,164 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Page</title>
-
-    <!-- Import Tailwind CSS and Font Awesome -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+    <title>Available Materials</title>
     <style>
-        /* Custom style for smooth transition */
-        .hidden {
-            display: none;
-        }
+      /* Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #1a202c;
+    color: #fff;
+}
 
-        .transition {
-            transition: all 0.3s ease;
-        }
+/* Container */
+.container {
+    display: flex;
+    height: 100vh;
+}
 
-        .active-course {
-            border: 2px solid #34d399; /* Green border to indicate active card */
-        }
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2d3748;
+    padding: 20px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.icon {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.header-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-item {
+    margin-bottom: 15px;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    color: #a0aec0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu-link:hover {
+    color: #fff;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background-color: #4a5568;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.card:hover {
+    background-color: #2d3748;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-body .author {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card-body .due-date, .card-body .task-details {
+    font-size: 12px;
+    color: #a0aec0;
+}
+
+/* Lesson Popup */
+.lesson-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.lesson-popup .popup-content {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    height: 80%;
+    position: relative;
+}
+
+.lesson-popup .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #e53e3e;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.lesson-popup .popup-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.lesson-popup .popup-frame {
+    width: 100%;
+    height: calc(100% - 60px);
+    border: none;
+}
+
+.lesson-popup.hidden {
+    display: none;
+}
+
     </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-bars icon"></i>
+                <span class="header-text">Available Materials</span>
+            </div>
+            <ul class="menu">
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-book icon"></i>
+                        Code căn bản
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-book icon"></i>
+                        Xác suất thống kê
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-book icon"></i>
+                        Giao tiếp người máy
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <i class="fas fa-book icon"></i>
+                        Toán rời rạc
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="card-grid">
+                <!-- Card 1 -->
+                <a href="javascript:void(0);" onclick="openLessonTab();" class="card">
+                    <div class="card-header">
+                        <span class="card-title">JavaScript</span>
+                        <i class="fas fa-ellipsis-v icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="author">Lập Trình JavaScript Cơ Bản</p>
+                        <p class="due-date">Đến hạn Thứ Bảy</p>
+                        <p class="task-details">23:59 – Lab 3</p>
+                    </div>
+                </a>
+                <!-- Repeat the above card structure for additional cards -->
+            </div>
+        </div>
+
+        <!-- Lesson Popup -->
+        <div id="lesson-tab" class="lesson-popup hidden">
+            <div class="popup-content">
+                <button onclick="closeLessonTab()" class="close-btn">Close</button>
+                <h1 class="popup-title">Lesson Content</h1>
+                <iframe src="lesson-content.html" class="popup-frame"></iframe>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // JavaScript to toggle between course content sections
-        function showCourseContent(courseId) {
-            // Hide all course content sections
-            const allContent = document.querySelectorAll('.course-content');
-            allContent.forEach(content => content.classList.add('hidden'));
-
-            // Remove active class from all course cards
-            const allCards = document.querySelectorAll('.course-card');
-            allCards.forEach(card => card.classList.remove('active-course'));
-
-            // Show the selected course content
-            document.getElementById(courseId).classList.remove('hidden');
-
-            // Add active class to clicked course card
-            const selectedCard = document.querySelector(`[data-course-id="${courseId}"]`);
-            selectedCard.classList.add('active-course');
+        function openLessonTab() {
+            document.getElementById('lesson-tab').classList.remove('hidden');
         }
 
-        // Toggle sidebar on smaller screens
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('hidden');
+        function closeLessonTab() {
+            document.getElementById('lesson-tab').classList.add('hidden');
         }
     </script>
-</head>
-<body class="bg-gray-100">
-
-    <!-- Header Section -->
-    <header class="bg-white shadow">
-        <div class="container mx-auto flex items-center justify-between py-4 px-6">
-            <div class="flex items-center">
-                <!-- Sidebar toggle for mobile view -->
-                <button class="md:hidden text-2xl mr-4" onclick="toggleSidebar()">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <!-- Title -->
-                <span class="ml-3 text-lg font-semibold">Available Materials</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Container -->
-    <div class="container mx-auto flex mt-6">
-        <!-- Sidebar Navigation -->
-        <aside id="sidebar" class="w-1/5 md:block hidden transition">
-            <nav class="bg-white shadow rounded-lg p-4">
-                <ul>
-                    <li class="flex items-center mb-4">
-                        <i class="fas fa-home text-xl"></i>
-                        <span class="ml-3 text-lg">Lập trình</span>
-                    </li>
-                    <li class="flex items-center mb-4">
-                        <i class="fas fa-road text-xl"></i>
-                        <span class="ml-3 text-lg">Xác suất thống kế</span>
-                    </li>
-                    <li class="flex items-center mb-4">
-                        <i class="fas fa-file-alt text-xl"></i>
-                        <span class="ml-3 text-lg">Toán rời rạc</span>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Main Content: Course Cards -->
-        <main class="w-full md:w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition">
-
-            <!-- JavaScript Basic Course Card -->
-            <div data-course-id="jsBasic" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('jsBasic')">
-                <h2 class="text-2xl font-bold text-white">JavaScript</h2>
-                <p class="text-lg text-white">{Basic}</p>
-                <p class="mt-4 text-gray-800">Lập Trình JavaScript Cơ Bản</p>
-            </div>
-
-            <!-- JavaScript Advanced Course Card -->
-            <div data-course-id="jsAdvanced" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('jsAdvanced')">
-                <h2 class="text-2xl font-bold text-white">JavaScript</h2>
-                <p class="text-lg text-white">{Advanced}</p>
-                <p class="mt-4 text-gray-800">Lập Trình JavaScript Nâng Cao</p>
-            </div>
-
-            <!-- WSL Ubuntu Course Card -->
-            <div data-course-id="wslUbuntu" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('wslUbuntu')">
-                <h2 class="text-2xl font-bold text-white">WSL Ubuntu</h2>
-                <p class="text-lg text-white">Windows Terminal</p>
-                <p class="mt-4 text-gray-800">Làm việc với Terminal &amp; Ubuntu</p>
-            </div>
-
-            <!-- Node & ExpressJS Course Card -->
-            <div data-course-id="nodeExpress" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('nodeExpress')">
-                <h2 class="text-2xl font-bold text-white">Node &amp; ExpressJS</h2>
-                <p class="mt-4 text-gray-800">Node &amp; ExpressJS</p>
-            </div>
-
-            <!-- ReactJS Course Card -->
-            <div data-course-id="reactJs" class="course-card bg-gradient-to-r from-green-500 to-green-500 rounded-lg shadow-lg p-6 cursor-pointer transition" onclick="showCourseContent('reactJs')">
-                <h2 class="text-2xl font-bold text-white">React JS</h2>
-                <p class="text-lg text-white">Learn once, write anywhere</p>
-                <p class="mt-4 text-gray-800">Xây Dựng Website với ReactJS</p>
-            </div>
-
-        </main>
-    </div>
-
-    <!-- Detailed Course Content Sections -->
-    <div class="container mx-auto mt-8">
-
-        <!-- JavaScript Basic Content -->
-        <div id="jsBasic" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
-            <h2 class="text-2xl font-bold mb-4">JavaScript Basic</h2>
-            <p>This section covers the basics of JavaScript programming, including syntax, variables, loops, and functions.</p>
-        </div>
-
-        <!-- JavaScript Advanced Content -->
-        <div id="jsAdvanced" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
-            <h2 class="text-2xl font-bold mb-4">JavaScript Advanced</h2>
-            <p>This section dives into advanced JavaScript topics, such as closures, asynchronous programming, and ES6 features.</p>
-        </div>
-
-        <!-- WSL Ubuntu Content -->
-        <div id="wslUbuntu" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
-            <h2 class="text-2xl font-bold mb-4">WSL Ubuntu</h2>
-            <p>This section explains how to set up and work with WSL (Windows Subsystem for Linux) and Ubuntu for development.</p>
-        </div>
-
-        <!-- Node & ExpressJS Content -->
-        <div id="nodeExpress" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
-            <h2 class="text-2xl font-bold mb-4">Node & ExpressJS</h2>
-            <p>In this section, you will learn how to build server-side applications using Node.js and Express.js.</p>
-        </div>
-
-        <!-- ReactJS Content -->
-        <div id="reactJs" class="course-content hidden bg-white p-6 rounded-lg shadow-lg transition">
-            <h2 class="text-2xl font-bold mb-4">React JS</h2>
-            <p>This section covers React.js, a JavaScript library for building user interfaces, focusing on component-based development.</p>
-        </div>
-
-    </div>
-
 </body>
 </html>

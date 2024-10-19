@@ -3,167 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Available Materials</title>
     <style>
-      /* Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    background-color: #1a202c;
-    color: #fff;
-}
+        /* Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #1a202c;
+            color: #fff;
+        }
 
-/* Container */
-.container {
-    display: flex;
-    height: 100vh;
-}
+        /* Container */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
 
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    background-color: #2d3748;
-    padding: 20px;
-}
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #2d3748;
+            padding: 20px;
+        }
 
-.sidebar-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-}
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
 
-.icon {
-    font-size: 18px;
-    margin-right: 10px;
-}
+        .icon {
+            font-size: 18px;
+            margin-right: 10px;
+        }
 
-.header-text {
-    font-size: 18px;
-    font-weight: bold;
-}
+        .header-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-.menu {
-    list-style-type: none;
-    padding: 0;
-}
+        .menu {
+            list-style-type: none;
+            padding: 0;
+        }
 
-.menu-item {
-    margin-bottom: 15px;
-}
+        .menu-item {
+            margin-bottom: 15px;
+        }
 
-.menu-link {
-    display: flex;
-    align-items: center;
-    color: #a0aec0;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        .menu-link {
+            display: flex;
+            align-items: center;
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-.menu-link:hover {
-    color: #fff;
-}
+        .menu-link:hover {
+            color: #fff;
+        }
 
-/* Main Content */
-.main-content {
-    flex: 1;
-    padding: 20px;
-}
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
 
-.card {
-    background-color: #4a5568;
-    padding: 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s;
-    text-decoration: none;
-    color: inherit;
-}
+        .card {
+            background-color: #4a5568;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
 
-.card:hover {
-    background-color: #2d3748;
-}
+        .card:hover {
+            background-color: #2d3748;
+        }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
 
-.card-title {
-    font-size: 16px;
-    font-weight: bold;
-}
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-.card-body .author {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
+        .card-body .author {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
 
-.card-body .due-date, .card-body .task-details {
-    font-size: 12px;
-    color: #a0aec0;
-}
+        .card-body .due-date, .card-body .task-details {
+            font-size: 12px;
+            color: #a0aec0;
+        }
 
-/* Lesson Popup */
-.lesson-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-}
+        /* Lesson Popup */
+        .lesson-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+        }
 
-.lesson-popup .popup-content {
-    background: #fff;
-    color: #000;
-    padding: 20px;
-    border-radius: 10px;
-    width: 70%;
-    height: 80%;
-    position: relative;
-}
+        .lesson-popup .popup-content {
+            background: #fff;
+            color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            width: 70%;
+            height: 80%;
+            position: relative;
+        }
 
-.lesson-popup .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #e53e3e;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        .lesson-popup .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #e53e3e;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-.lesson-popup .popup-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+        .lesson-popup .popup-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-.lesson-popup .popup-frame {
-    width: 100%;
-    height: calc(100% - 60px);
-    border: none;
-}
+        .lesson-popup .popup-frame {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+        }
 
-.lesson-popup.hidden {
-    display: none;
-}
+        .lesson-popup.hidden {
+            display: none;
+        }
 
+        /* Hidden class for content toggle */
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -176,13 +179,13 @@ body, html {
             </div>
             <ul class="menu">
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="#" id="codeCanBan" class="menu-link">
                         <i class="fas fa-book icon"></i>
                         Code căn bản
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="#" id="xacSuatThongKe" class="menu-link">
                         <i class="fas fa-book icon"></i>
                         Xác suất thống kê
                     </a>
@@ -204,20 +207,51 @@ body, html {
 
         <!-- Main Content -->
         <div class="main-content">
-            <div class="card-grid">
+            <div id="codeContent" class="card-grid">
                 <!-- Card 1 -->
-                <a href="lessonJava.html" onclick="openLessonTab();" class="card">
+                <a href="lessonPython.html" class="card">
                     <div class="card-header">
                         <span class="card-title">Python</span>
                         <i class="fas fa-ellipsis-v icon"></i>
                     </div>
                     <div class="card-body">
                         <p class="author">Lập Trình Python Cơ Bản</p>
-                        <p class="due-date">             t         </p>
-                        <p class="task-details">         t            </p>
                     </div>
                 </a>
-                <!-- Repeat the above card structure for additional cards -->
+                <!-- Card 2 -->
+                <a href="lessonJava.html" class="card">
+                    <div class="card-header">
+                        <span class="card-title">Java</span>
+                        <i class="fas fa-ellipsis-v icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="author">Lập Trình Java Cơ Bản</p>
+                    </div>
+                </a>
+                <!-- Card 3 -->
+                <a href="lessonHtml.html" class="card">
+                    <div class="card-header">
+                        <span class="card-title">HTML</span>
+                        <i class="fas fa-ellipsis-v icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="author">Lập Trình HTML Cơ Bản</p>
+                    </div>
+                </a>
+            </div>
+
+            <div id="xacSuatContent" class="card-grid hidden">
+                <!-- Card 1 -->
+                <a href="#" class="card">
+                    <div class="card-header">
+                        <span class="card-title">Xác Suất 1</span>
+                        <i class="fas fa-ellipsis-v icon"></i>
+                    </div>
+                    <div class="card-body">
+                        <p class="author">Bài học xác suất cơ bản</p>
+                    </div>
+                </a>
+                <!-- More cards if needed -->
             </div>
         </div>
 
@@ -226,7 +260,7 @@ body, html {
             <div class="popup-content">
                 <button onclick="closeLessonTab()" class="close-btn">Close</button>
                 <h1 class="popup-title">Lesson Content</h1>
-                <iframe src="lesson-content.html" class="popup-frame"></iframe>
+                <iframe src="" class="popup-frame" id="lesson-frame"></iframe>
             </div>
         </div>
     </div>
@@ -239,6 +273,19 @@ body, html {
         function closeLessonTab() {
             document.getElementById('lesson-tab').classList.add('hidden');
         }
+
+        // Toggle content based on sidebar selection
+        document.getElementById('codeCanBan').addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default anchor action
+            document.getElementById('codeContent').classList.remove('hidden');
+            document.getElementById('xacSuatContent').classList.add('hidden');
+        });
+
+        document.getElementById('xacSuatThongKe').addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default anchor action
+            document.getElementById('codeContent').classList.add('hidden');
+            document.getElementById('xacSuatContent').classList.remove('hidden');
+        });
     </script>
 </body>
 </html>

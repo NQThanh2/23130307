@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Dashboard with Hover Dropdown Menu</title>
+    <!-- Thêm Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar { background-color: #f8f9fa;
+            padding-left: 0; /* Loại bỏ padding thừa */ }
+        .dashboard-info { padding: 20px 0; }
+        .card { margin-right: 10px; }
+        .streak-info { display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #f8f9fa; border-radius: 10px; }
+
+        /* CSS để bật dropdown khi di chuột */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0; /* Loại bỏ khoảng cách giữa menu và dropdown */
+        }
+
+
+        /* -----------------------------------------------*/
+        .recommendation-section {
+            margin-top: 30px;
+        }
+        .recommendation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .recommendation-header h4 {
+            font-weight: bold;
+        }
+        .edit-interests-link {
+            color: #007bff;
+            font-size: 14px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .course-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .course-card-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .course-card-subtitle {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .course-card-rating {
+            font-size: 12px;
+            color: #ffb400;
+        }
+        .personalize-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 20px;
+            position: relative;
+        }
+        .personalize-section h5 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .personalize-section p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .personalize-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Thanh điều hướng trên cùng -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Dropdown Business Operations -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="businessDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Business Operations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="businessDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                    <!-- Dropdown Cloud Computing -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cloudDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cloud Computing
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="cloudDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                    <!-- Dropdown Cybersecurity -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cyberDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cybersecurity
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="cyberDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                    <!--                    -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cyberDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Data Science
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="cyberDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                    <!---->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cyberDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Development
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="cyberDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                    <!---->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cyberDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            IT Operations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="cyberDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                    <!---->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cyberDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            language Learning
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="cyberDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                    <!---->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cyberDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Leadership & Management
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="cyberDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                    <!---->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="cyberDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Marketing
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="cyberDropdown">
+                            <a class="dropdown-item" href="#">Section 1</a>
+                            <a class="dropdown-item" href="#">Section 2</a>
+                            <a class="dropdown-item" href="#">Section 3</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Phần thông tin cá nhân -->
+    <div class="container dashboard-info">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Welcome back, Nguyen Quang Thanh</h3>
+                <a href="#" class="text-primary">Add occupation and interests</a>
+            </div>
+        </div>
+
+        <!-- Phần thông tin Weekly streak -->
+        <div class="streak-info my-4">
+            <div>
+                <h5>Weekly streak</h5>
+                <p>One ring down, one to go. Keep it up!</p>
+            </div>
+            <div>
+                <p><strong>2 weeks</strong> Current streak</p>
+            </div>
+            <div>
+                <p><strong>11/30</strong> course min</p>
+                <p><strong>4/1</strong> visit</p>
+                <small>Oct 13 - 19</small>
+            </div>
+            <a href="#" class="text-primary">See all activity</a>
+        </div>
+
+        <!-- Phần nội dung "Pick up where you left off" -->
+        <h4>Pick up where you left off</h4>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#courses">Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#learning-paths">Learning paths</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#certification">Certification preparation</a>
+            </li>
+        </ul>
+
+        <!-- Nội dung các khóa học -->
+        <div class="tab-content my-3">
+            <div class="tab-pane container active" id="courses">
+                <div class="card-deck">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">1. Introduction</h5>
+                            <p class="card-text">Lecture • 1m</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">2. Integration introduction</h5>
+                            <p class="card-text">Lecture • 6m left</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">7. Quiz and Questions</h5>
+                            <p class="card-text">Quiz • 9 questions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------------------------------->
+    <div class="container recommendation-section">
+        <!-- Tiêu đề và liên kết tùy chỉnh sở thích -->
+        <div class="recommendation-header">
+            <h4>Based on your certification interests, we recommend</h4>
+            <a href="#" class="edit-interests-link">Edit certification interests</a>
+        </div>
+
+        <!-- Các thẻ khóa học được đề xuất -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card course-card">
+                    <img src="https://via.placeholder.com/250x150" alt="Java Course">
+                    <div class="card-body">
+                        <p class="course-card-title">Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808</p>
+                        <p class="course-card-subtitle">Andrii Piatakha, Learn IT University</p>
+                        <p class="course-card-rating">⭐ 4.6 (438)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card course-card">
+                    <img src="https://via.placeholder.com/250x150" alt="Java Certification">
+                    <div class="card-body">
+                        <p class="course-card-title">Oracle Java Certification - Pass the Associate 1Z0-808 Exam</p>
+                        <p class="course-card-subtitle">Tim Buchalka's Learn Programming Academy</p>
+                        <p class="course-card-rating">⭐ 4.6 (5,906)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card course-card">
+                    <img src="https://via.placeholder.com/250x150" alt="Java Bootcamp">
+                    <div class="card-body">
+                        <p class="course-card-title">Complete Java SE 8 Developer Bootcamp - OCA Prep Included</p>
+                        <p class="course-card-subtitle">Intertech Training, Jeff Jensen</p>
+                        <p class="course-card-rating">⭐ 4.6 (9,726)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card course-card">
+                    <img src="https://via.placeholder.com/250x150" alt="Spring Certification">
+                    <div class="card-body">
+                        <p class="course-card-title">Spring Professional Certification Exam Tutorial - Module 02</p>
+                        <p class="course-card-subtitle">Dominik Cebula</p>
+                        <p class="course-card-rating">⭐ 4.6 (1,121)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần cá nhân hóa trải nghiệm học tập -->
+        <div class="personalize-section">
+            <span class="close-icon">&times;</span>
+            <h5>Personalize your learning experience</h5>
+            <p>Add your occupation and interests to get better content recommendations.</p>
+            <button class="personalize-btn">Add occupation and interests</button>
+        </div>
+    </div>
+    <!-- Thêm jQuery và Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Script để đóng phần cá nhân hóa khi nhấn vào nút x
+        $('.close-icon').on('click', function() {
+            $('.personalize-section').hide();
+        });
+    </script>
+</body>
+</html>

@@ -6,9 +6,21 @@
     <title>Learning Dashboard with Hover Dropdown Menu</title>
     <!-- Thêm Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
     <style>
         .navbar { background-color: #f8f9fa;
-            padding-left: 0; /* Loại bỏ padding thừa */ }
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 14px; /* Thu nhỏ chữ */
+    text-align: center; /* Căn giữa nội dung */
+}
+
+    .navbar-nav {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
         .dashboard-info { padding: 20px 0; }
         .card { margin-right: 10px; }
         .streak-info { display: flex; justify-content: space-between; align-items: center; padding: 15px; background-color: #f8f9fa; border-radius: 10px; }
@@ -94,10 +106,7 @@
 <body>
     <!-- Thanh điều hướng trên cùng -->
     <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <!-- Dropdown Business Operations -->
@@ -216,15 +225,21 @@
         <!-- Phần thông tin Weekly streak -->
         <div class="streak-info my-4">
             <div>
+                
                 <h5>Weekly streak</h5>
                 <p>One ring down, one to go. Keep it up!</p>
             </div>
             <div>
-                <p><strong>2 weeks</strong> Current streak</p>
+                
+                <p>
+                    <i class="fas fa-fire">
+                    </i>
+                    <strong>2 weeks</strong> Current streak</p>
             </div>
             <div>
+                
                 <p><strong>11/30</strong> course min</p>
-                <p><strong>4/1</strong> visit</p>
+                 <p><strong>4/1</strong> visit</p>
                 <small>Oct 13 - 19</small>
             </div>
             <a href="#" class="text-primary">See all activity</a>
@@ -249,21 +264,21 @@
             <div class="tab-pane container active" id="courses">
                 <div class="card-deck">
                     <div class="card">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9SRRmhH4X5N2e4QalcoxVbzYsD44C-sQv-w&s" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">1. Introduction</h5>
                             <p class="card-text">Lecture • 1m</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                        <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">2. Integration introduction</h5>
                             <p class="card-text">Lecture • 6m left</p>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                        <img src="https://trungtamgiasusaoviet.com/public/files/images/2020/07/26/26-4/quizizz.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">7. Quiz and Questions</h5>
                             <p class="card-text">Quiz • 9 questions</p>
@@ -285,7 +300,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="card course-card">
-                    <img src="https://via.placeholder.com/250x150" alt="Java Course">
+                    <img src="https://img-c.udemycdn.com/course/240x135/4216148_17f9.jpg" alt="Java Course">
                     <div class="card-body">
                         <p class="course-card-title">Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808</p>
                         <p class="course-card-subtitle">Andrii Piatakha, Learn IT University</p>
@@ -295,7 +310,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card course-card">
-                    <img src="https://via.placeholder.com/250x150" alt="Java Certification">
+                    <img src="https://img-c.udemycdn.com/course/750x422/1326802_8935_3.jpg" alt="Java Certification">
                     <div class="card-body">
                         <p class="course-card-title">Oracle Java Certification - Pass the Associate 1Z0-808 Exam</p>
                         <p class="course-card-subtitle">Tim Buchalka's Learn Programming Academy</p>
@@ -305,7 +320,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card course-card">
-                    <img src="https://via.placeholder.com/250x150" alt="Java Bootcamp">
+                    <img src="https://i0.wp.com/telcomatraining.com/wp-content/uploads/2022/07/java-3.jpg?resize=841%2C471&ssl=1" alt="Java Bootcamp">
                     <div class="card-body">
                         <p class="course-card-title">Complete Java SE 8 Developer Bootcamp - OCA Prep Included</p>
                         <p class="course-card-subtitle">Intertech Training, Jeff Jensen</p>
@@ -315,7 +330,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card course-card">
-                    <img src="https://via.placeholder.com/250x150" alt="Spring Certification">
+                    <img src="https://skillmapper.com/_next/image?url=https%3A%2F%2Fcdn.skillmapper.com%2Fstatic%2Fcontent%2Fwebv2%2Fimages%2Fcourses%2Favif%2F7c23a00f64c7d0f0c4594cf7adcafa41.avif&w=3840&q=75" alt="Spring Certification">
                     <div class="card-body">
                         <p class="course-card-title">Spring Professional Certification Exam Tutorial - Module 02</p>
                         <p class="course-card-subtitle">Dominik Cebula</p>

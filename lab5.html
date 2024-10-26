@@ -1,0 +1,437 @@
+<html>
+ <head>
+  <title>
+   My Learning
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: left;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            text-align: left;
+        }
+        .header p {
+            margin: 5px 0;
+        }
+        .nav {
+            display: flex;
+            justify-content: left;
+            background-color: #444;
+            padding: 10px 0;
+        }
+        .nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .nav a:hover {
+            background-color: #555;
+        }
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+        }
+        .filters select, .filters input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .filters input[type="text"] {
+            flex-grow: 1;
+        }
+        .filters button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .filters button:hover {
+            background-color: #555;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .course {
+            background-color: white;
+            width: 30%;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .course img {
+            width: 100%;
+            height: auto;
+        }
+        .course-content {
+            padding: 20px;
+        }
+        .course-content h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .course-content p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f5f5f5;
+        }
+        .course-footer .progress {
+            font-size: 14px;
+            color: #666;
+        }
+        .course-footer .rating {
+            display: flex;
+            align-items: center;
+        }
+        .course-footer .rating i {
+            color: #f39c12;
+            margin-right: 5px;
+        }
+        .course-footer .rating span {
+            font-size: 14px;
+            color: #666;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="header">
+   <h1>
+    My learning
+   </h1>
+   <p>
+    87hr 36min watched
+    <i class="fas fa-circle">
+    </i>
+    View all activity
+   </p>
+  </div>
+  <div class="nav">
+   <a href="#">
+    All courses
+   </a>
+   <a href="#">
+    Learning paths
+   </a>
+   <a href="#">
+    Certifications
+   </a>
+   <a href="#">
+    Archived
+   </a>
+   <a href="#">
+    Learning tools
+   </a>
+  </div>
+  <div class="filters">
+   <div>
+    <select>
+     <option>
+      Recently Accessed
+     </option>
+    </select>
+    <select>
+     <option>
+      Categories
+     </option>
+    </select>
+    <select>
+     <option>
+      Progress
+     </option>
+    </select>
+    <select>
+     <option>
+      Instructor
+     </option>
+    </select>
+    <button>
+     Reset
+    </button>
+   </div>
+   <div>
+    <input placeholder="Search my courses" type="text"/>
+    <button>
+     <i class="fas fa-search">
+     </i>
+    </button>
+   </div>
+  </div>
+  <div class="courses">
+   <div class="course">
+    <img alt="Information Security Management System" height="200" src="https://storage.googleapis.com/a1aa/image/W1NRJM0Dci6ICl6uaHSCntLbNfCCOdR5itnwyUsQimk1lP1JA.jpg" width="300"/>
+    <div class="course-content">
+     <h3>
+      FPT_ISMS Refresh Training S2 2024 (Vietnamese)
+     </h3>
+     <p>
+      FSOFT Content Development
+     </p>
+    </div>
+    <div class="course-footer">
+     <div class="progress">
+      100% complete
+     </div>
+     <div class="rating">
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <span>
+       Leave a rating
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="course">
+    <img alt="Spring Boot Development Bootcamp" height="200" src="https://storage.googleapis.com/a1aa/image/WW9CULQjJbJeOiY35jPLMmfoqhaYEuXtfHNUe8DUJzvdv8pOB.jpg" width="300"/>
+    <div class="course-content">
+     <h3>
+      The Complete Spring Boot Development Bootcamp
+     </h3>
+     <p>
+      Learn The Part Inc., Rayan Slim, Jose...
+     </p>
+    </div>
+    <div class="course-footer">
+     <div class="progress">
+      100% complete
+     </div>
+     <div class="rating">
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <span>
+       Leave a rating
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="course">
+    <img alt="MuleSoft 4.X Complete Guide" height="200" src="https://storage.googleapis.com/a1aa/image/pBPOplZdJO48JpqIaaMsf9DAOoOHkuuSVnpUaOdmZ0J4lP1JA.jpg" width="300"/>
+    <div class="course-content">
+     <h3>
+      MuleSoft 4.X Complete Guide For Beginners- Hands On...
+     </h3>
+     <p>
+      Chinna Reddy
+     </p>
+    </div>
+    <div class="course-footer">
+     <div class="progress">
+      1% complete
+     </div>
+     <div class="rating">
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <span>
+       Leave a rating
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="course">
+    <img alt="English Vocabulary: 504 Essential Words" height="200" src="https://storage.googleapis.com/a1aa/image/678kzErisabzKhoZJh0txhM2Ff2m1NeXBsqfxIzDX2BmXepOB.jpg" width="300"/>
+    <div class="course-content">
+     <h3>
+      English Vocabulary: 504 Essential Words through 7...
+     </h3>
+     <p>
+      Mister Rabiey
+     </p>
+    </div>
+    <div class="course-footer">
+     <div class="progress">
+      15% complete
+     </div>
+     <div class="rating">
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <i class="fas fa-star">
+      </i>
+      <span>
+       Your rating
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="course">
+    <img alt="Build a Backend REST API with Python &amp; Django" height="200" src="https://storage.googleapis.com/a1aa/image/daa08MXi8jpdIZH7hAqeLtOcadKotOTUiOYHkf7yQxfdXepOB.jpg" width="300"/>
+    <div class="course-content">
+     <h3>
+      Build a Backend REST API with Python &amp; Django -...
+     </h3>
+     <p>
+      Instructor Name
+     </p>
+    </div>
+    <div class="course-footer">
+     <div class="progress">
+      0% complete
+     </div>
+     <div class="rating">
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <span>
+       Leave a rating
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="course">
+    <img alt="ChatGPT Python Programming: AI Guided" height="200" src="https://storage.googleapis.com/a1aa/image/LW7XHCwvjbJXIVH3FykgKPshfaMRZmjhuE1duxGxI662lP1JA.jpg" width="300"/>
+    <div class="course-content">
+     <h3>
+      ChatGPT Python Programming: AI Guided
+     </h3>
+     <p>
+      Instructor Name
+     </p>
+    </div>
+    <div class="course-footer">
+     <div class="progress">
+      0% complete
+     </div>
+     <div class="rating">
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <span>
+       Leave a rating
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="course">
+    <img alt="Java Certification (1Z0-819)" height="200" src="https://storage.googleapis.com/a1aa/image/k2brpDVC7u5wNdmmVqflOku4FFBK6tZZlmOr5aEyxCU6lP1JA.jpg" width="300"/>
+    <div class="course-content">
+     <h3>
+      Java Certification (1Z0-819) Topics-wise Tests: Part-1
+     </h3>
+     <p>
+      Instructor Name
+     </p>
+    </div>
+    <div class="course-footer">
+     <div class="progress">
+      0% complete
+     </div>
+     <div class="rating">
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <span>
+       Leave a rating
+      </span>
+     </div>
+    </div>
+   </div>
+   <div class="course">
+    <img alt="FPT_PMP Training" height="200" src="https://storage.googleapis.com/a1aa/image/6YAwTuRuC1pkDZvhpQNeCAkgm9UTrQD93eSzZ2n41GwxLfUnA.jpg" width="300"/>
+    <div class="course-content">
+     <h3>
+      FPT_PMP Training
+     </h3>
+     <p>
+      FSOFT Content Development
+     </p>
+    </div>
+    <div class="course-footer">
+     <div class="progress">
+      0% complete
+     </div>
+     <div class="rating">
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <i class="far fa-star">
+      </i>
+      <span>
+       Leave a rating
+      </span>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

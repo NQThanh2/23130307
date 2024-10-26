@@ -1,6 +1,8 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         My Learning
     </title>
@@ -109,16 +111,17 @@
 
         .course {
             background-color: white;
-            width: 30%;
-            margin: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            overflow: hidden;
+    width: 22%; /* Adjusted width to allow 4 courses per row */
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
         }
 
         .course img {
             width: 100%;
-            height: auto;
+    height: 150px; /* Adjusted height to make the images smaller */
+    object-fit: cover; /* Ensures the image is resized without stretching */
         }
 
         .course-content {
@@ -264,7 +267,7 @@
         </div>
         <div class="course">
             <img alt="Spring Boot Development Bootcamp" height="200"
-                src="https://storage.googleapis.com/a1aa/image/WW9CULQjJbJeOiY35jPLMmfoqhaYEuXtfHNUe8DUJzvdv8pOB.jpg"
+                src="https://img-c.udemycdn.com/course/750x422/4695284_83ea_6.jpg"
                 width="300" />
             <div class="course-content">
                 <h3>
@@ -495,5 +498,4 @@
         </div>
     </div>
 </body>
-
 </html>

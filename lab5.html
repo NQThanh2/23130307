@@ -142,6 +142,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
             padding: 10px 20px;
             background-color: #f5f5f5;
         }
@@ -166,6 +167,26 @@
             font-size: 14px;
             color: #666;
         }
+        .progress-container {
+    position: relative;
+    height: 8px; /* Chiều cao thanh tiến trình */
+    background-color: #e0e0e0; /* Màu nền của thanh */
+    border-radius: 4px; /* Bo góc thanh */
+    overflow: hidden;
+    margin: 10px 0; /* Khoảng cách trên/dưới */
+}
+.progress-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+        .progress-bar {
+            width: 0;
+            height: 100%;
+            background-color: #4a90e2;
+
+        }
+    
     </style>
 </head>
 
@@ -233,7 +254,10 @@
                 </p>
             </div>
             <div class="course-footer">
-                <div class="progress">
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 100%;"></div> <!-- Thanh tiến trình hoàn thành 100% -->
+                </div>
+                <div class="progress-text">
                     100% complete
                 </div>
                 <div class="rating">

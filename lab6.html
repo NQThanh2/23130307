@@ -1,114 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Test Custom Challenge</title>
+    <title>New Unit Test Custom Challenge</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f7fa;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+
+        .modal {
+            width: 80%;
+            margin: 50px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .modal-header .close {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            padding: 20px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
+
         .card {
-            background-color: white;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+
+        .card img {
+            max-width: 50px;
+            margin-bottom: 10px;
+        }
+
         .card h3 {
-            margin: 0;
+            margin: 10px 0;
             font-size: 18px;
         }
-        
-        .card span {
-            display: block;
-            margin: 10px 0;
-            color: #555;
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
         }
-        .card .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
+        .card-text{
+            color: #fff;
+            background-color: #666; /* Change to match the theme */
+            border-radius: 5px;
+            padding: 5px 10px; /* Adjust padding for better appearance */
+            font-size: 14px; /* Font size for the badge */
+            display: inline-block; /* Make it inline block for proper spacing */
+            margin-top: 5px; /* Optional: spacing from the heading */
+            
+            border-radius: 5px;
         }
-        .button {
+
+        .card .btn {
             background-color: #007bff;
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
+            padding: 10px 20px;
+            border-radius: 4px;
             cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
+            margin-right: 10px;
         }
-        .button.guide {
-            background-color: #ccc;
-            color: #333;
-        }
-        .button:hover {
-            opacity: 0.9;
+
+        .card .btn-guide {
+            background-color: #f5f7fa;
+            color: #666;
+            border: 1px solid #e0e0e0;
         }
     </style>
 </head>
+
 <body>
-    <h1>New Unit Test Custom Challenge</h1>
-    <div class="container">
-        <div class="card">
-            <h3>JavaScript <span>Mocha</span></h3>
-            <span>Use the Mocha testing framework and create unit tests to grade solutions.</span>
-            <div class="buttons">
-                <a href="#" class="button">Continue</a>
-                <a href="#" class="button guide">Guide</a>
-            </div>
+    <div class="modal">
+        <div class="modal-header">
+            <h2>New unit test custom challenge</h2>
+            <span class="close">×</span>
         </div>
-        <div class="card">
-            <h3>TypeScript <span>Mocha</span></h3>
-            <span>Use the Mocha testing framework and create unit tests to grade solutions.</span>
-            <div class="buttons">
-                <a href="#" class="button">Continue</a>
-                <a href="#" class="button guide">Guide</a>
+        <div class="modal-content">
+            <div class="card">
+                <img alt="JavaScript Mocha logo" src="https://mochajs.org/images/mocha-logo.svg" />
+                <h3>JavaScript <span class="card-text">Mocha</span></h3>
+                <p>Use the Mocha testing framework and create unit tests to grade solutions.</p>
+                <button class="btn">Continue</button>
+                <button class="btn btn-guide">Guide</button>
             </div>
-        </div>
-        <div class="card">
-            <h3>Python <span>pytest</span></h3>
-            <span>pytest is the most popular and fully-featured Python testing framework.</span>
-            <div class="buttons">
-                <a href="#" class="button">Continue</a>
-                <a href="#" class="button guide">Guide</a>
+            <div class="card">
+                <img alt="TypeScript Mocha logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" />
+                <h3>TypeScript <span class="card-text">Mocha</span></h3>
+                <p>Use the Mocha testing framework and create unit tests to grade solutions.</p>
+                <button class="btn">Continue</button>
+                <button class="btn btn-guide">Guide</button>
             </div>
-        </div>
-        <div class="card">
-            <h3>PHP <span>PHPUnit</span></h3>
-            <span>PHPUnit is a programmer-oriented testing framework for PHP.</span>
-            <div class="buttons">
-                <a href="#" class="button">Continue</a>
-                <a href="#" class="button guide">Guide</a>
+            <div class="card">
+                <img alt="Python pytest logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" />
+                <h3>Python <span class="card-text">pytest</span></h3>
+                <p>pytest is the most popular and fully-featured Python testing framework.</p>
+                <button class="btn">Continue</button>
+                <button class="btn btn-guide">Guide</button>
             </div>
-        </div>
-        <div class="card">
-            <h3>Java <span>JUnit</span></h3>
-            <span>JUnit is a popular unit-testing framework in the Java ecosystem.</span>
-            <div class="buttons">
-                <a href="#" class="button">Continue</a>
-                <a href="#" class="button guide">Guide</a>
+            <div class="card">
+                <img alt="PHP PHPUnit logo" src="https://www.svgrepo.com/show/452088/php.svg" />
+                <h3>PHP <span class="card-text">PHPUnit</span></h3>
+                <p>PHPUnit is a programmer-oriented testing framework for PHP.</p>
+                <button class="btn">Continue</button>
+                <button class="btn btn-guide">Guide</button>
             </div>
-        </div>
-        <div class="card">
-            <h3>Kotlin <span>JUnit</span></h3>
-            <span>JUnit is a popular unit-testing framework in the Kotlin ecosystem.</span>
-            <div class="buttons">
-                <a href="#" class="button">Continue</a>
-                <a href="#" class="button guide">Guide</a>
+            <div class="card">
+                <img alt="Java JUnit logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png" />
+                <h3>Java <span class="card-text">JUnit</span></h3>
+                <p>JUnit is a popular unit-testing framework in the Java ecosystem.</p>
+                <button class="btn">Continue</button>
+                <button class="btn btn-guide">Guide</button>
+            </div>
+            <div class="card">
+                <img alt="Kotlin JUnit logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1200px-Kotlin_Icon.png" />
+                <h3>Kotlin <span class="card-text">JUnit</span></h3>
+                <p>JUnit is a popular unit-testing framework in the Kotlin ecosystem.</p>
+                <button class="btn">Continue</button>
+                <button class="btn btn-guide">Guide</button>
             </div>
         </div>
     </div>
 </body>
+
 </html>

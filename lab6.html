@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Unit Test Custom Challenge</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,16 +73,15 @@
             font-size: 14px;
             margin-bottom: 20px;
         }
-        .card-text{
+
+        .card-text {
             color: #fff;
-            background-color: #666; /* Change to match the theme */
+            background-color: #666;
             border-radius: 5px;
-            padding: 5px 10px; /* Adjust padding for better appearance */
-            font-size: 14px; /* Font size for the badge */
-            display: inline-block; /* Make it inline block for proper spacing */
-            margin-top: 5px; /* Optional: spacing from the heading */
-            
-            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 5px;
         }
 
         .card .btn {
@@ -93,12 +92,113 @@
             border-radius: 4px;
             cursor: pointer;
             margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .card .btn:hover {
+            background-color: #0056b3;
         }
 
         .card .btn-guide {
             background-color: #f5f7fa;
             color: #666;
             border: 1px solid #e0e0e0;
+        }
+
+        /* Popup modal styling */
+        .popup-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .popup-modal .modal-header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popup-modal .close {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .popup-modal .modal-body {
+            padding: 20px;
+        }
+
+        .popup-modal .modal-body .full-width-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group-combined {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .form-group-combined .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .form-group-combined .form-group label {
+            flex: 1;
+        }
+
+        .form-group-combined .form-group select,
+        .form-group-combined .form-group input[type="text"] {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group-combined hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 15px 0;
+        }
+
+        .modal-footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Background overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
     </style>
 </head>
@@ -107,53 +207,117 @@
     <div class="modal">
         <div class="modal-header">
             <h2>New unit test custom challenge</h2>
-            <span class="close">×</span>
+            <span class="close">
+                <a href="index.html" target="_blank" style="color: white; text-decoration: none;">
+                    x
+                </a>
+            </span>
         </div>
         <div class="modal-content">
             <div class="card">
                 <img alt="JavaScript Mocha logo" src="https://mochajs.org/images/mocha-logo.svg" />
                 <h3>JavaScript <span class="card-text">Mocha</span></h3>
                 <p>Use the Mocha testing framework and create unit tests to grade solutions.</p>
-                <button class="btn">Continue</button>
+                <button class="btn continue-btn">Continue</button>
                 <button class="btn btn-guide">Guide</button>
             </div>
             <div class="card">
-                <img alt="TypeScript Mocha logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" />
+                <img alt="TypeScript Mocha logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" />
                 <h3>TypeScript <span class="card-text">Mocha</span></h3>
                 <p>Use the Mocha testing framework and create unit tests to grade solutions.</p>
-                <button class="btn">Continue</button>
+                <button class="btn continue-btn">Continue</button>
                 <button class="btn btn-guide">Guide</button>
             </div>
             <div class="card">
-                <img alt="Python pytest logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" />
+                <img alt="Python pytest logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" />
                 <h3>Python <span class="card-text">pytest</span></h3>
                 <p>pytest is the most popular and fully-featured Python testing framework.</p>
-                <button class="btn">Continue</button>
+                <button class="btn continue-btn">Continue</button>
                 <button class="btn btn-guide">Guide</button>
             </div>
             <div class="card">
                 <img alt="PHP PHPUnit logo" src="https://www.svgrepo.com/show/452088/php.svg" />
                 <h3>PHP <span class="card-text">PHPUnit</span></h3>
                 <p>PHPUnit is a programmer-oriented testing framework for PHP.</p>
-                <button class="btn">Continue</button>
+                <button class="btn continue-btn">Continue</button>
                 <button class="btn btn-guide">Guide</button>
             </div>
             <div class="card">
-                <img alt="Java JUnit logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png" />
+                <img alt="Java JUnit logo"
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png" />
                 <h3>Java <span class="card-text">JUnit</span></h3>
                 <p>JUnit is a popular unit-testing framework in the Java ecosystem.</p>
-                <button class="btn">Continue</button>
+                <button class="btn continue-btn">Continue</button>
                 <button class="btn btn-guide">Guide</button>
             </div>
             <div class="card">
-                <img alt="Kotlin JUnit logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1200px-Kotlin_Icon.png" />
+                <img alt="Kotlin JUnit logo"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin_Icon.png/1200px-Kotlin_Icon.png" />
                 <h3>Kotlin <span class="card-text">JUnit</span></h3>
                 <p>JUnit is a popular unit-testing framework in the Kotlin ecosystem.</p>
-                <button class="btn">Continue</button>
+                <button class="btn continue-btn">Continue</button>
                 <button class="btn btn-guide">Guide</button>
             </div>
         </div>
     </div>
+
+    <!-- Popup modal for "Continue" -->
+    <div class="overlay"></div>
+    <div class="popup-modal">
+        <div class="modal-header">
+            <span>New Unit Test Custom Challenge</span>
+            <span class="close">×</span>
+        </div>
+        <div class="modal-body">
+            <input type="text" value="Demo" class="full-width-input">
+            <div class="form-group-combined">
+                <div class="form-group">
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="description">Short description:</label>
+                    <input type="text" id="description"
+                        placeholder="Optional short description about this challenge...">
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="editcode_lab6.html" target="_blank" style="color: white; text-decoration: none;">
+                Click here to open the Java (JUnit) IDE and edit your code →
+            </a>
+        </div>
+        
+    </div>
+
+    <script>
+        // Show popup modal on "Continue" button click
+        document.querySelectorAll('.continue-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelector('.popup-modal').style.display = 'block';
+                document.querySelector('.overlay').style.display = 'block';
+            });
+        });
+
+        // Close popup modal
+        document.querySelector('.popup-modal .close').addEventListener('click', () => {
+            document.querySelector('.popup-modal').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+        });
+
+        // Close popup if clicking outside the modal
+        document.querySelector('.overlay').addEventListener('click', () => {
+            document.querySelector('.popup-modal').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+        });
+    </script>
 </body>
 
 </html>
